@@ -61,6 +61,13 @@ for pin in digital_pins:
 
 potes = [analogio.AnalogIn(pin) for pin in pot_pins]
 
+#Output Visual Test de Botons i Potenciometres
+
+modo="null"
+
+text_area = label.Label(terminalio.FONT, text=f"	  TECLA\nA: B: C: Oct:"+str(octava)+"\n MODO:"+modo, color=0xFFFFFF, x=10, y=10)
+splash.append(text_area)
+
 # Creació del cercle 1
 objeto = vectorio.Circle(
     radius=10,  # Radio inicial
@@ -82,9 +89,11 @@ objeto3 = vectorio.Circle(
     y=32,       # Centro Y
     pixel_shader=obj_palette
 )
-splash.append(objeto)  # Añadir a la pantalla el cercle 1
-splash.append(objeto2)  # Añadir a la pantalla el cercle 2
-splash.append(objeto3)  # Añadir a la pantalla el cercle 3
+#codi_part1.HolaBonaTarda()
+
+#splash.append(objeto)  # Añadir a la pantalla el cercle 1
+#splash.append(objeto2)  # Añadir a la pantalla el cercle 2
+#splash.append(objeto3)  # Añadir a la pantalla el cercle 3
 
 state_harmony = {
     'previous_note': 60,
@@ -519,6 +528,10 @@ while True:
         else:
             loop_mode = 1
             print(f"Mode de loop canviat a mandelbrot")
+            modo="Mandelbrot"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
             stop_all_notes()
             time.sleep(0.01)
 
@@ -528,6 +541,10 @@ while True:
         else:
             loop_mode = 4
             print(f"Loop Harmonia activat")
+            modo="Loop Harmonia"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
             stop_all_notes()
         time.sleep(0.01)
 
@@ -537,6 +554,10 @@ while True:
         else:
             loop_mode = 6
             print(f"Loop Newton-Raphson")
+            modo="Newton-Raphson"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
         time.sleep(0.01)
 
     if buttons[2].value:
@@ -545,6 +566,10 @@ while True:
         else:
             loop_mode = 5
             print(f"Loop personalitzat activat")
+            modo="LOOP"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
         time.sleep(0.01)
 
     if buttons[5].value:
@@ -553,6 +578,10 @@ while True:
         else:
             loop_mode = 3
             print(f"Loop sinusoidal activat")
+            modo="Sinus"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
         time.sleep(0.01)
 
     if buttons[4].value:
@@ -561,6 +590,10 @@ while True:
         else:
             loop_mode = 7
             print(f"Loop Dent de Serra")
+            modo="Serra"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
         time.sleep(0.01)
 
     if buttons[7].value:
@@ -570,6 +603,10 @@ while True:
             loop_mode = 2
             stop_all_notes()
             print(f"Mode de loop canviat a random")
+            modo="Random"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
         time.sleep(0.01)
         
     if buttons[6].value:
@@ -578,6 +615,10 @@ while True:
         else:
             loop_mode = 13
             print("◆ Iniciando modo matemático ◆")
+            modo="◆Matemàtic◆"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
         time.sleep(0.01)
         
     if buttons[9].value:
@@ -586,6 +627,10 @@ while True:
         else:
             loop_mode = 8
             print(f"Loop Batec")
+            modo="♥Batec♥"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
         time.sleep(0.01)
 
     if buttons[8].value:
@@ -594,6 +639,10 @@ while True:
         else:
             loop_mode = 10
             print(f"Loop riu")
+            modo="Riu"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
         time.sleep(0.01)
         
     if buttons[11].value:
@@ -602,6 +651,10 @@ while True:
         else:
             loop_mode = 11
             print(f"Loop tormenta")
+            modo="Tormenta"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
         time.sleep(0.01)
 
     if buttons[10].value:
@@ -610,6 +663,10 @@ while True:
         else:
             loop_mode = 9
             print(f"Loop escala")
+            modo="Escala"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
         time.sleep(0.01)
 
     if buttons[13].value:
@@ -618,11 +675,21 @@ while True:
         else:
             loop_mode = 12
             print(f"Modo teclado activado | Octava: {octava}")
+            modo="Teclat"
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
             time.sleep(0.2)
 
     if buttons[15].value:  # Si se presiona el botón para subir
         if octava < 8:     # Limita la octava máxima a 9
             octava += 1
+            
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
+            
+            
             print(f"Octava subida a {octava}")
             time.sleep(0.1)
             kidmos = 0
@@ -641,6 +708,11 @@ while True:
     if buttons[12].value:  # Si se presiona el botón para bajar
         if octava > 0:     # Limita la octava mínima a 0
             octava -= 1
+            
+            #Refresh screen
+            text_area.text= "	  TECLA\nA:" "B:" "C:" "Oct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
+            
             print(f"Octava bajada a {octava}")
             time.sleep(0.1)
             kidmos = 0
