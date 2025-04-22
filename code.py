@@ -507,7 +507,7 @@ while True:
 
         display.refresh()
     if loop_mode !=0:
-        text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+        text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
         display.refresh()
     
     ritmo = generar_ritmo_euclideo(steps_ritme(y), steps_ritme(z)+1)
@@ -549,7 +549,7 @@ while True:
             print(f"Mode de loop canviat a mandelbrot")
             modo="Mandelbrot"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
             stop_all_notes()
             time.sleep(0.01)
@@ -564,7 +564,7 @@ while True:
             print(f"Loop Harmonia activat")
             modo="Loop Harmonia"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
             stop_all_notes()
         time.sleep(0.01)
@@ -579,7 +579,7 @@ while True:
             print(f"Loop Newton-Raphson")
             modo="Newton-Raphson"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
         time.sleep(0.01)
 
@@ -593,7 +593,7 @@ while True:
             print(f"Loop personalitzat activat")
             modo="LOOP"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
         time.sleep(0.01)
 
@@ -607,7 +607,7 @@ while True:
             print(f"Loop sinusoidal activat")
             modo="Sinus"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
         time.sleep(0.01)
 
@@ -621,7 +621,7 @@ while True:
             print(f"Loop Dent de Serra")
             modo="Serra"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
         time.sleep(0.01)
 
@@ -636,7 +636,7 @@ while True:
             print(f"Mode de loop canviat a random")
             modo="Random"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
         time.sleep(0.01)
         
@@ -650,7 +650,7 @@ while True:
             print("◆ Iniciando modo matemático ◆")
             modo="◆Matemàtic◆"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
         time.sleep(0.01)
         
@@ -664,7 +664,7 @@ while True:
             print(f"Loop Batec")
             modo="♥Batec♥"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
         time.sleep(0.01)
 
@@ -678,7 +678,7 @@ while True:
             print(f"Loop riu")
             modo="Riu"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
         time.sleep(0.01)
         
@@ -692,7 +692,7 @@ while True:
             print(f"Loop tormenta")
             modo="Tormenta"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
         time.sleep(0.01)
 
@@ -706,7 +706,7 @@ while True:
             print(f"Loop escala")
             modo="Escala"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
         time.sleep(0.01)
 
@@ -716,7 +716,7 @@ while True:
             print(f"Modo Sequenciador | Octava: {octava}")
             modo="Sequenciador"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
             time.sleep(0.1)
         else:
@@ -724,7 +724,7 @@ while True:
             print(f"Modo teclado activado | Octava: {octava}")
             modo="Teclat"
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
             time.sleep(0.1)
 
@@ -733,7 +733,7 @@ while True:
             octava += 1
             
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
             
             
@@ -757,7 +757,7 @@ while True:
             octava -= 1
             
             #Refresh screen
-            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
             display.refresh()
             
             print(f"Octava bajada a {octava}")
@@ -1557,3 +1557,4 @@ while True:
 
 
      
+
