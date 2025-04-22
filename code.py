@@ -65,7 +65,11 @@ potes = [analogio.AnalogIn(pin) for pin in pot_pins]
 
 modo="null"
 
-text_area = label.Label(terminalio.FONT, text=f"	  TECLA\nA: 00 B: 00 C: 00 \nOct:"+str(octava)+"\n MODO:"+modo, color=0xFFFFFF, x=10, y=10)
+text_area = label.Label(terminalio.FONT, text=""".-. .-. .-. .   .-. 
+ |  |-  |   |   |-| 
+ '  `-' `-' `-' ` ' 
+"""
+, color=0xFFFFFF, x=10, y=10)
 splash.append(text_area)
 
 # Creació del cercle 1
@@ -495,8 +499,16 @@ while True:
     z, x, y = pot_values
     
     #Refresh screen
-    text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
-    display.refresh()
+    if loop_mode == 0:
+        text_area.text= """.-. .-. .-. .   .-. 
+ |  |-  |   |   |-| 
+ '  `-' `-' `-' ` ' 
+"""
+
+        display.refresh()
+    if loop_mode !=0:
+        text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+        display.refresh()
     
     ritmo = generar_ritmo_euclideo(steps_ritme(y), steps_ritme(z)+1)
     to = random.randint(0,1)
@@ -530,6 +542,8 @@ while True:
     if buttons[1].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 1
             print(f"Mode de loop canviat a mandelbrot")
@@ -543,6 +557,8 @@ while True:
     if buttons[0].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 4
             print(f"Loop Harmonia activat")
@@ -556,6 +572,8 @@ while True:
     if buttons[3].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 6
             print(f"Loop Newton-Raphson")
@@ -568,6 +586,8 @@ while True:
     if buttons[2].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 5
             print(f"Loop personalitzat activat")
@@ -580,6 +600,8 @@ while True:
     if buttons[5].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 3
             print(f"Loop sinusoidal activat")
@@ -592,6 +614,8 @@ while True:
     if buttons[4].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 7
             print(f"Loop Dent de Serra")
@@ -604,6 +628,8 @@ while True:
     if buttons[7].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 2
             stop_all_notes()
@@ -617,6 +643,8 @@ while True:
     if buttons[6].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 13
             print("◆ Iniciando modo matemático ◆")
@@ -629,6 +657,8 @@ while True:
     if buttons[9].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 8
             print(f"Loop Batec")
@@ -641,6 +671,8 @@ while True:
     if buttons[8].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 10
             print(f"Loop riu")
@@ -653,6 +685,8 @@ while True:
     if buttons[11].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 11
             print(f"Loop tormenta")
@@ -665,6 +699,8 @@ while True:
     if buttons[10].value:
         if loop_mode == 12:
             loop_mode = 12
+        if loop_mode == 14:
+            loop_mode = 14
         else:
             loop_mode = 9
             print(f"Loop escala")
@@ -676,7 +712,13 @@ while True:
 
     if buttons[13].value:
         if loop_mode == 12:
-            loop_mode = 12
+            loop_mode = 14
+            print(f"Modo Sequenciador | Octava: {octava}")
+            modo="Sequenciador"
+            #Refresh screen
+            text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
+            display.refresh()
+            time.sleep(0.1)
         else:
             loop_mode = 12
             print(f"Modo teclado activado | Octava: {octava}")
@@ -684,7 +726,7 @@ while True:
             #Refresh screen
             text_area.text= f"	  TECLA\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)+"\n MODO:"+modo
             display.refresh()
-            time.sleep(0.2)
+            time.sleep(0.1)
 
     if buttons[15].value:  # Si se presiona el botón para subir
         if octava < 8:     # Limita la octava máxima a 9
@@ -762,21 +804,21 @@ while True:
                 # Avanzar a la siguiente posición
         """  
 
-    cx = map_value(potes[1].value, 0, 65535, -1.5, 1.5)
-    cy = map_value(potes[2].value, 0, 65535, -1.5, 1.5)
+    cx = map_value(potes[2].value, 0, 65535, -1.5, 1.5)
+    cy = map_value(potes[0].value, 0, 65535, -1.5, 1.5)
 
     if loop_mode == 1:
         note = mandelbrot_to_midi(cx, cy)
         if caos == 0:
             play_note(note)
-            #print(f"Nota fractal: {note}, cx:{cx:.2f}, cy:{cy:.2f}")
+            print(f"Nota fractal: {note}, cx:{cx:.2f}, cy:{cy:.2f}")
             time.sleep(steps_melo(x) / 50)
             midi.send(NoteOff(note, 100))
             iteration = 0
             
         elif caos == 1:
             play_note_full(note, to, octava, steps_melo(x))
-            #print(f"Nota fractal: {note}, cx:{cx:.2f}, cy:{cy:.2f}   | CAOS : {to}")
+            print(f"Nota fractal: {note}, cx:{cx:.2f}, cy:{cy:.2f}   | CAOS : {to}")
 
     elif loop_mode == 2:
         if steps(z) > steps(y):
@@ -786,13 +828,13 @@ while True:
         
         if caos == 0:
             play_note(random_note)
-            #print(f"Nota aleatoria: {random_note}")
-            time.sleep(0.05)
+            print(f"Nota aleatoria: {random_note}")
+            time.sleep(steps_melo(x) / 50)
             midi.send(NoteOff(random_note, 100))
             iteration = 0
         elif caos == 1:
             play_note_full(random_note, to, octava, steps_melo(x))
-            #print(f"Nota aleatoria: {random_note}   | CAOS : {to}")
+            print(f"Nota aleatoria: {random_note}   | CAOS : {to}")
             
         # Cálculos para el círculo (modificación)
         new_radius = 1 + int(random_note * 0.2)  # Radio entre 5-25 píxeles
@@ -816,17 +858,17 @@ while True:
         note = int(sinusoidal_val)  # Convertim el valor sinusoidal a una nota MIDI
         if caos == 0:
             midi.send(NoteOn(note, 100))  # Enviar la nota MIDI
-            #print(f"Nota sinusoidal: {note}, ampli = {steps(z)} | freq base = {steps(y)*2/100} | iteració: {iteration}")
+            print(f"Nota sinusoidal: {note}, ampli = {steps(z)} | freq base = {steps(y)*2/100} | iteració: {iteration}")
             iteration += 1  # Incrementar la iteració per a la següent execució
             if iteration >= 60000:
                 iteration = 0
-            #time.sleep(steps_melo(x) / 50)
-            time.sleep(0.01)
+            time.sleep(steps_melo(x) / 50)
+            #time.sleep(0.01)
             midi.send(NoteOff(note, 100))
             
         if caos == 1:
             play_note_full(note, to, octava, steps_melo(x))
-            #print(f"Nota sinusoidal: {note}, ampli = {steps(z)} | freq base = {steps(y)*2/100} | iteració: {iteration}   | CAOS : {to}")
+            print(f"Nota sinusoidal: {note}, ampli = {steps(z)} | freq base = {steps(y)*2/100} | iteració: {iteration}   | CAOS : {to}")
             iteration += 1  # Incrementar la iteració per a la següent execució
             if iteration >= 60000:
                 iteration = 0
@@ -880,12 +922,12 @@ while True:
         # Lógica de reproducción
         if caos == 0:
             play_note(new_note)
-            #print(f"🎼 Nota: {new_note} | X: {x_param} | Y: {y_param}")
+            print(f"🎼 Nota: {new_note} | X: {x_param} | Y: {y_param}")
             time.sleep(steps_melo(x) / 50)
             midi.send(NoteOff(new_note, 100))
         elif caos == 1:
             play_note_full(new_note, to, octava, steps_melo(x))
-            #print(f"🎼🔥 CAOS | Nota: {new_note} | Var: {x_param + y_param}")
+            print(f"🎼🔥 CAOS | Nota: {new_note} | Var: {x_param + y_param}")
             time.sleep(steps_melo(x) / 50)
         
         # Reset manual
@@ -916,23 +958,23 @@ while True:
             
         if caos == 0:
             play_note(note)  # Enviar la nota MIDI
-            #print(f"Nota Perlin enviada: {note}, valor 1:{x}, valor 2: {y}")  # Imprimir la nota para monitoreo
+            print(f"Nota Perlin enviada: {note}, valor 1:{x}, valor 2: {y}")  # Imprimir la nota para monitoreo
             time.sleep(steps_melo(x) / 50)
             midi.send(NoteOff(note, 100))
         if caos == 1:
             play_note_full(note, to, octava, steps_melo(x))
-            #print(f"Nota Perlin enviada: {note}, valor 1:{x}, valor 2: {y}   | CAOS : {to}")  # Imprimir la nota para monitoreo
+            print(f"Nota Perlin enviada: {note}, valor 1:{x}, valor 2: {y}   | CAOS : {to}")  # Imprimir la nota para monitoreo
             time.sleep(steps_melo(x) / 50)
         
     elif loop_mode == 5:
         if position >= steps_ritme(z):
             position = 0
             ritmo = generar_ritmo_euclideo(steps_ritme(y), steps_ritme(z)+1)
-            #nota = melodia[position]
+            nota = melodia[position]
             to = ritmo[position]
             nota = 0 + (octava * 12)
             play_note_full(nota, to, octava, steps_melo(x))
-            #print(f"nota tocada: {nota}, Activada: {to}, Posició: {position}, Longitud: {len(ritmo)}, Freqüencia: {steps_melo(x)} \n patro tocat: {ritmo}")
+            print(f"nota tocada: {nota}, Activada: {to}, Posició: {position}, Longitud: {len(ritmo)}, Freqüencia: {steps_melo(x)} \n patro tocat: {ritmo}")
         else:
             ritmo = generar_ritmo_euclideo(steps_ritme(y), steps_ritme(z)+1)
             nota = melodia[position]
@@ -942,7 +984,7 @@ while True:
                 nota = 0
             play_note_full(nota, to, octava, steps_melo(x))
             position = position + 1
-            #print(f"nota tocada: {nota}, Activada: {to}, Posició: {position}, Longitud: {len(ritmo)}, Freqüencia: {steps_melo(x)} \n patro tocat: {ritmo}")
+            print(f"nota tocada: {nota}, Activada: {to}, Posició: {position}, Longitud: {len(ritmo)}, Freqüencia: {steps_melo(x)} \n patro tocat: {ritmo}")
             
 
     elif loop_mode == 6:
@@ -952,12 +994,12 @@ while True:
         escalada_newton = scale_with_randomness(salida)
         if caos == 0:
             play_note(escalada_newton)
-            #print(f"Nota Newton-Raphson_ {escalada_newton}")
+            print(f"Nota Newton-Raphson_ {escalada_newton}, ValorX: {cx}, ValorY: {cy}")
             time.sleep(steps_melo(x) / 50)
             midi.send(NoteOff(escalada_newton, 100))
         elif caos == 1:
             play_note_full(escalada_newton, to, octava, steps_melo(x))
-            #print(f"Nota Newton-Raphson_ {escalada_newton}   |   CAOS : {to}")
+            print(f"Nota Newton-Raphson_ {escalada_newton}   |   CAOS : {to}")
 
     elif loop_mode == 7:  # Modo Sawtooth con control de fase
         iteration_saw += 1
@@ -981,12 +1023,12 @@ while True:
         # Sistema de reproducción
         if caos == 0:
             play_note(nota_saw)
-            #print(f"🔊 Nota: {nota_saw} | Iter: {iteration_saw} | Fase: {fase_actual}/10")
+            print(f"🔊 Nota: {nota_saw} | Iter: {iteration_saw} | Fase: {fase_actual}/10")
             time.sleep(steps_melo(x) / 50)
             midi.send(NoteOff(nota_saw, 100))
         elif caos == 1:
             play_note_full(nota_saw, to, octava, steps_melo(x))
-            #print(f"🎛️ Nota Caótica: {nota_saw} | Fase: {fase_actual} | Iter: {iteration_saw}")
+            print(f"🎛️ Nota Caótica: {nota_saw} | Fase: {fase_actual} | Iter: {iteration_saw}")
 
     elif loop_mode == 70:
         iteration_saw = iteration_saw+1   # Iteración o tiempo de la señal
@@ -997,7 +1039,7 @@ while True:
             iteration_saw = 0
         if caos == 0:
             play_note(nota_saw)
-            #print(f"Valor de diente de sierra: {nota_saw} en iteracio: {iteration_saw}")
+            print(f"Valor de diente de sierra: {nota_saw} en iteracio: {iteration_saw}")
             time.sleep(steps_melo(x) / 50)
             midi.send(NoteOff(nota_saw, 100))
         elif caos == 1:
@@ -1031,7 +1073,7 @@ while True:
         midi.send(NoteOff(dub_note, 100))
         
         
-        #print(f"{dub_note}   ❤️{lub_note}  |  BPM: {base_bpm*600} | Intervalo: {heartbeat_interval:.2f}s")
+        print(f"{dub_note}   ❤️{lub_note}  |  BPM: {base_bpm*600} | Intervalo: {heartbeat_interval:.2f}s")
         
         
 
@@ -1054,7 +1096,7 @@ while True:
         play_note(nota_escala)
         time.sleep(steps_melo(x) / 50)
         midi.send(NoteOff(nota_escala, 100))
-        #print(f"NOTA TOCADA = {nota_escala} | PROGRES: {progres} | PAS = {pas} (Base: {escalada*escalo})")
+        print(f"NOTA TOCADA = {nota_escala} | PROGRES: {progres} | PAS = {pas} (Base: {escalada*escalo})")
             
     elif loop_mode == 10:  # Modo "Río"
         # Parámetros de control
@@ -1087,7 +1129,7 @@ while True:
         time.sleep(steps_melo(x) / 50)
         
         midi.send(NoteOff(nota_rio, 100))
-        #print(f"Nota: {nota_rio} | Corriente: {corriente:.1f} | Turbulencia: {turbulencia}")
+        print(f"Nota: {nota_rio} | Corriente: {corriente:.1f} | Turbulencia: {turbulencia}")
 
     elif loop_mode == 11:  # Modo "Tormenta Dinámica con Octavas"
         volumen_fijo = 100
@@ -1131,7 +1173,7 @@ while True:
                 time.sleep(max(0.01, 0.05 - (frecuencia_rayos * 0.003)))
                 midi.send(NoteOff(nota_relampago, volumen_fijo))
             
-            #print(f"⚡ Rayo con viento {fuerza_viento} | Oct {octava}")
+            print(f"⚡ Rayo con viento {fuerza_viento} | Oct {octava}")
         else:
             # Lluvia fractal con protección mejorada
             variacion_lluvia = random.randint(-2 + frecuencia_rayos, 2 + frecuencia_rayos)
@@ -1158,7 +1200,7 @@ while True:
             midi.send(NoteOff(nota_lluvia, volumen_fijo))
             time.sleep(max(0.01, tiempo_gota * 0.9))
 
-        #print(f"🌪️ Tormenta: Viento {fuerza_viento} | Oct {octava} | Base {nota_base}")
+        print(f"🌪️ Tormenta: Viento {fuerza_viento} | Oct {octava} | Base {nota_base}")
     
     
     
@@ -1266,12 +1308,12 @@ while True:
         # Control de octavas con delay dinámico
         if buttons[13].value and octava < 8:
             octava += 1
-            #print(f"Octava subida: {octava}")
+            print(f"Octava subida: {octava}")
             time.sleep(steps_melo(x) / 50) # Originalmente 0.2
         
         if buttons[14].value and octava > 0:
             octava -= 1
-            #print(f"Octava bajada: {octava}")
+            print(f"Octava bajada: {octava}")
             time.sleep(steps_melo(x) / 50)  # Originalmente 0.2
         
         # Botón 15 con delay dinámico
@@ -1280,7 +1322,7 @@ while True:
                 midi.send(NoteOff(nota_actual, 100))
             loop_mode = 0
             nota_actual = -1
-            #print("Modo teclado desactivado")
+            print("Modo teclado desactivado")
             time.sleep(steps_melo(x) / 50)  # Originalmente 0.2
        
     elif loop_mode == 13:  # Loop Matemático Armónico Pro
@@ -1379,7 +1421,7 @@ while True:
                 
                 # Feedback mejorado
                 note_name = nota_actual  # Asume función de conversión MIDI a nombre
-                #print(f"🎵 {note_name} | Type: {['Mayor','Menor','Sus4','Disminuido','Aumentado'][tipo_acorde]} | Prog: {['I-V-vi-IV','I-vi-IV-V','I-ii-iii-V','Experimental'][progresion_pattern]} | Dir: {'⬆' if direccion_arpegio==1 else '⬇'} | BPM: {int(60/(velocidad*len(notas_ordenadas)))} | Volt: {get_voltage(potes[2]):.2f}v")
+                print(f"🎵 {note_name} | Type: {['Mayor','Menor','Sus4','Disminuido','Aumentado'][tipo_acorde]} | Prog: {['I-V-vi-IV','I-vi-IV-V','I-ii-iii-V','Experimental'][progresion_pattern]} | Dir: {'⬆' if direccion_arpegio==1 else '⬇'} | BPM: {int(60/(velocidad*len(notas_ordenadas)))} | Volt: {get_voltage(potes[2]):.2f}v")
 
         except KeyboardInterrupt:
             for n in state['active_notes']:
@@ -1390,6 +1432,50 @@ while True:
                 'current_progression': []
             })
 
+    elif loop_mode == 14:  # Modo Secuendiador
+        sequence = [60] * 12
+        current_step = 0
+        last_step_time = time.monotonic()
+        bpm = 120
+        note_duration = 0.5
+        last_clock = time.monotonic()
+        current_time = time.monotonic()
+        #Iniciar Secuenciador
+        
+        if current_time - last_step_time >= (60/bpm):
+            midi.send(NoteOn(sequence[current_play_step], 100))
+            time.sleep(0.05)  # Nota proporcional al tempo
+            midi.send(NoteOff(sequence[current_play_step], 100))
+
+            # Avanzar paso
+            current_play_step = (current_play_step + 1) % 12
+            last_step_time = current_time  # <--- Actualiza el timer
+        
+        # 1. Seleccionar paso con botones 1-12
+        for i in range(12):
+            if buttons[i].value:
+                current_step = i
+                print(f"Paso {current_step} seleccionado | Nota actual: {sequence[current_step]}")
+
+        # 2. Pot X: Cambiar nota del paso actual (0-127)
+        sequence[current_step] = int(steps_nota(x))  # Usa steps_nota() como en otros modos
+    
+        # 3. Pot Z: Ajustar BPM (40-270)
+        bpm = 40 + (230 * (z / 3.3))  # 40 + (0..100*2.3)
+    
+        # 4. Pot Y: Control complementario (ej: duración)
+        note_duration = 0.1 + (0.8 * (y / 3.3))  # 10%-100% del paso
+    
+        # Reproducción automática de la secuencia
+        if time.monotonic() - last_step_time > (60 / bpm):
+            # Toca la nota actual
+            midi.send(NoteOn(sequence[current_play_step], 100))
+            time.sleep((60 / bpm) * note_duration)
+            midi.send(NoteOff(sequence[current_play_step], 100))
+        
+            # Avanza al siguiente paso
+            current_play_step = (current_play_step + 1) % 12
+            last_step_time = time.monotonic()
 
     elif loop_mode == 23:  # Loop Matemático Armónico
         # Variables de estado
@@ -1458,7 +1544,7 @@ while True:
                 state['last_note_time'] = time.monotonic()
 
 
-                #print(f"▶ Nota: {nota_actual} | Arpegio: {state['arp_index'] + 1}/{len(notas)*2} | Acorde: }")
+                print(f"▶ Nota: {nota_actual} | Arpegio: {state['arp_index'] + 1}/{len(notas)*2} | Acorde: }")
 
                 # Pequeña pausa no bloqueante
                 time.sleep(0.001)
