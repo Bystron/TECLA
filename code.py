@@ -540,11 +540,7 @@ while True:
 
     # Gestionem els botons
     if buttons[1].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 1
             print(f"Mode de loop canviat a mandelbrot")
             modo="Mandelbrot"
@@ -555,11 +551,7 @@ while True:
             time.sleep(0.01)
 
     if buttons[0].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 4
             print(f"Loop Harmonia activat")
             modo="Loop Harmonia"
@@ -570,11 +562,7 @@ while True:
         time.sleep(0.01)
 
     if buttons[3].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 6
             print(f"Loop Newton-Raphson")
             modo="Newton-Raphson"
@@ -584,11 +572,7 @@ while True:
         time.sleep(0.01)
 
     if buttons[2].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 5
             print(f"Loop personalitzat activat")
             modo="LOOP"
@@ -598,11 +582,7 @@ while True:
         time.sleep(0.01)
 
     if buttons[5].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 3
             print(f"Loop sinusoidal activat")
             modo="Sinus"
@@ -612,11 +592,7 @@ while True:
         time.sleep(0.01)
 
     if buttons[4].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 7
             print(f"Loop Dent de Serra")
             modo="Serra"
@@ -626,11 +602,7 @@ while True:
         time.sleep(0.01)
 
     if buttons[7].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 2
             stop_all_notes()
             print(f"Mode de loop canviat a random")
@@ -641,11 +613,7 @@ while True:
         time.sleep(0.01)
         
     if buttons[6].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 13
             print("◆ Iniciando modo matemático ◆")
             modo="◆Matemàtic◆"
@@ -655,11 +623,7 @@ while True:
         time.sleep(0.01)
         
     if buttons[9].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 8
             print(f"Loop Batec")
             modo="♥Batec♥"
@@ -669,11 +633,7 @@ while True:
         time.sleep(0.01)
 
     if buttons[8].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 10
             print(f"Loop riu")
             modo="Riu"
@@ -683,11 +643,7 @@ while True:
         time.sleep(0.01)
         
     if buttons[11].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 11
             print(f"Loop tormenta")
             modo="Tormenta"
@@ -697,11 +653,7 @@ while True:
         time.sleep(0.01)
 
     if buttons[10].value:
-        if loop_mode == 12:
-            loop_mode = 12
-        if loop_mode == 14:
-            loop_mode = 14
-        else:
+        if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 9
             print(f"Loop escala")
             modo="Escala"
@@ -1557,4 +1509,3 @@ while True:
 
 
      
-
