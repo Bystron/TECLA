@@ -544,9 +544,6 @@ while True:
             loop_mode = 1
             print(f"Mode de loop canviat a mandelbrot")
             modo="Mandelbrot"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
             stop_all_notes()
             time.sleep(0.01)
 
@@ -555,30 +552,21 @@ while True:
             loop_mode = 4
             print(f"Loop Harmonia activat")
             modo="Loop Harmonia"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
             stop_all_notes()
-        time.sleep(0.01)
+            time.sleep(0.01)
 
     if buttons[3].value:
         if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 6
             print(f"Loop Newton-Raphson")
             modo="Newton-Raphson"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
-        time.sleep(0.01)
+            time.sleep(0.01)
 
     if buttons[2].value:
         if ((loop_mode!=12)and(loop_mode!=14)):
             loop_mode = 5
             print(f"Loop personalitzat activat")
             modo="LOOP"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
         time.sleep(0.01)
 
     if buttons[5].value:
@@ -586,9 +574,6 @@ while True:
             loop_mode = 3
             print(f"Loop sinusoidal activat")
             modo="Sinus"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
         time.sleep(0.01)
 
     if buttons[4].value:
@@ -596,9 +581,6 @@ while True:
             loop_mode = 7
             print(f"Loop Dent de Serra")
             modo="Serra"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
         time.sleep(0.01)
 
     if buttons[7].value:
@@ -607,9 +589,6 @@ while True:
             stop_all_notes()
             print(f"Mode de loop canviat a random")
             modo="Random"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
         time.sleep(0.01)
         
     if buttons[6].value:
@@ -617,9 +596,6 @@ while True:
             loop_mode = 13
             print("◆ Iniciando modo matemático ◆")
             modo="◆Matemàtic◆"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
         time.sleep(0.01)
         
     if buttons[9].value:
@@ -627,9 +603,6 @@ while True:
             loop_mode = 8
             print(f"Loop Batec")
             modo="♥Batec♥"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
         time.sleep(0.01)
 
     if buttons[8].value:
@@ -637,9 +610,6 @@ while True:
             loop_mode = 10
             print(f"Loop riu")
             modo="Riu"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
         time.sleep(0.01)
         
     if buttons[11].value:
@@ -647,9 +617,6 @@ while True:
             loop_mode = 11
             print(f"Loop tormenta")
             modo="Tormenta"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
         time.sleep(0.01)
 
     if buttons[10].value:
@@ -657,9 +624,6 @@ while True:
             loop_mode = 9
             print(f"Loop escala")
             modo="Escala"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
         time.sleep(0.01)
 
     if buttons[13].value:
@@ -667,17 +631,11 @@ while True:
             loop_mode = 14
             print(f"Modo Sequenciador | Octava: {octava}")
             modo="Sequenciador"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
             time.sleep(0.1)
         else:
             loop_mode = 12
             print(f"Modo teclado activado | Octava: {octava}")
             modo="Teclat"
-            #Refresh screen
-            text_area.text= f"	  "+modo+"\nA:"+str(round(x,2))+" B:"+str(round(y,2))+" C:"+str(round(z,2))+" \nOct:"+str(octava)
-            display.refresh()
             time.sleep(0.1)
 
     if buttons[15].value:  # Si se presiona el botón para subir
